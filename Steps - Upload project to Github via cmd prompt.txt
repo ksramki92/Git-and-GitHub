@@ -1,0 +1,158 @@
+		********************************************************		
+			Working with GitHub via Command prompt
+			Author - Ramki Kuppusamy
+			Github - https://github.com/ksramki92
+		********************************************************
+********************************************************
+Upload project to GibHub
+********************************************************
+
+1. Install Git in local machine (One time activity)
+https://git-scm.com/downloads
+
+2. Create a repository in GitHub
+
+3. Copy the URL of the repository from GitHub
+
+4. Install Putty (One time activity)
+https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+
+Once done, check in Start button if Putty and PuttyGen apps are installed.
+
+Open PuttyGen and Choose Type of Key as "RSA" and Click on "Generate" and Hover the mouse point below status bar of key generation. Once key is generated, click on "Save private Key" and save it in local(may be needed in later point in case you forget it. This is kind of a profile)
+
+Now copy the key generated from PuttyGen
+
+Navigate to GitHub->Click on Username on top right corner->Settings-> SSH and GPG Keys-> Click on "New SSH Key" and Name the key like "WindowsSSHKey" and paste the key and "add SSH Key"
+
+5. Open cmd and type "git --version" to confirm installation of git in local machine
+
+6. cd <path of eclipse maven project>
+
+7. Type "git init" to initiate git in local. This creates .git hidden folder in same eclipse project path.
+
+8. Type "git remote add origin <URL from GitHub>" . This creates local repository with same as repo name from GitHub.
+
+9. Type "git status" - to check the list of files available in local repository
+
+10. Type "git add ." to add all the files for upload
+
+OR
+
+Type "git add <file1> <file2>" to add specific files for upload
+
+11. Type " git commit -m "<message>" "This commits the changes but yet has not pushed it.
+
+12. Type "git pull --rebase origin master" This is to pull current copy of master repo from GitHub (its a fetch operation)
+
+13. Type "git push origin master" to push the code to GitHub
+
+14. That's it. Check the upload in GitHub.
+
+
+************************************
+Downloading project from GitHub
+************************************
+1. cd <Windows Explorer path to download the project to>
+
+2. git clone <url of the GitHub project>
+
+3. Check in the windows explorer folder to confirm the download of the project
+
+
+***********************************
+Working with Centralized Branch - Master
+***********************************
+1. Download the project using "git clone <url of the GitHub Master branch>"
+
+OR
+
+Create folder in local machine and type "git init" on that path
+Type "git remote add origin <url of the github master branch>"
+Type "git pull origin master"
+
+2. Repeat the step with another user (say different folder if in same machine)
+
+3. If person 1 makes some changes and commits it to the centralized branch (Master), then there might be conflicts
+
+Eg. Person 1 makes first line of original master text from "Test" to "Test Person 1" and commits it with master branch
+Person 2 also makes first line of original master text from "Test" to "Test Person 2"	and tries to push it with master branch
+Now Person 2 push will be rejected saying something like "Updates were rejected because the remote contains work that you dont have locally. This is caused by another repository pushing to the same ref. You may want to integrate the remote changes (eg. git pull..) before pushing again."
+
+4. To solve this issue, type "git pull --rebase origin master". This will show the real conflicting file details.
+
+5. Edit and decide which text to hold 
+	Either both "Test Person 1" and "Test Person 2" or any of them
+
+6. Type "git rebase --continue". Conflict is solved by now.
+
+7. Type "git push origin master"
+
+
+**********************************
+Working with Feature Branch (Replace Feature with your preferred name if required)
+**********************************
+
+1. If you are new to the project and don't have copy of the project in local machine, then clone the master branch
+
+git clone <url of the GitHub Master branch>
+
+2. Import the downloaded project into eclipse
+
+3. Type "git branch", it will show *master
+
+4. Create a branch from GitHub with the task you are assinged to. For example, lets say you are going to work on automating a page, say, DealsPage in FreeCRM.com, then create a branch named "DealsPageBranch"
+
+5. Type "git pull origin DealsPageBranch"
+
+6. Type "git checkout DealsPageBranch"
+
+7. Type "git branch" - now it will show *DealsPageBranch
+
+8. Work on DealsPage from Eclipse
+
+9. When you think, your work should be merged with DealsPageBranch in GitHub, Type "git status". It will show the modified content / added content of dealspage classes
+
+10. Type "git add <The file name to be merged with GitHub along with the path>"
+
+11. Type "git status" - now it will show the added file in green color
+
+12. Type "git commit -m "add comment" "
+
+13. Type "git push origin DealsPageBranch"
+
+14. Check in GitHub DealsPageBranch if the update is reflected
+
+
+**************************
+Pull Request to Master for Merge
+**************************
+1. Go inside DealsPageBranch in GitHub
+
+2. Create New Pull Request (green color button)
+
+3. Add some notes and confirm the pull request
+
+4. Now the master branch owner(you/someoneelse) will get notification that "<DeasPageBranch owner> wants to merge 1 commit to Master from DealsPageBranch
+
+5. Master branch owner can check your comments and code and even can add review comment for each line in your code and click on "Finish your review"
+
+6. If there is review comment,then work on that in eclipse and push the code to DealsPageBranch, Now master branch owner will get auto notification about the update in the PR request (no need to raise a request again for updates on review comments)
+
+7. Once its approved, you will get notification and you can merge the code to the master branch.
+
+8. In Merge, there are 3 options available
+a. Merge
+b. Squash and Merge
+c. Rebase and Merge - It will get the latest commits from Master branch to feature branch and then adds feature branch commits and merges it with master branch
+
+
+
+
+
+
+
+
+
+
+

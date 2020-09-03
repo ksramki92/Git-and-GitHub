@@ -1,0 +1,44 @@
+		**********************************************************		
+			Upload Eclipse project to Github
+
+				Author - Ramki Kuppusamy
+				Github - https://github.com/ksramki92
+
+		**********************************************************
+
+1. Create new account in Github
+
+2. Create new repository , ex- FreeCRMTest.. Only master branch will be there by default. if you want you can create new branch for edits.
+Open the created repository->Note down the URL under "Clone and Download" dropdown (green color button)
+
+3. Make sure Git is installed in your system. New eclipse versions is having Git installed by default.
+
+3. Create your project in eclipse
+
+4. Right click on the project -> Team->Share project-> Configure Git Repository window will open
+
+5. Click on "Create" near Repository field -> Name this same or similar to the one created on Github (Step 2) -> Finish.  This will be your local repository. Note that before uploading your project/files to github, it should be commited to local repository. You cannot upload without local repository.
+
+6. Now there will be lock symbol added before your project name
+
+7. Eclipse->Window->Show View->Other->Git View->Select both Git Repositories and Git Staging and open. Make sure these tabs are available on right hand side of eclipse. you can drag this tabs to down near output tab as well. Its up to your convenience.
+
+8. On the Git Repositories tab in eclipse, make sure your newly created local repository (step 5) is available -> Expand it-> Check under Branches, "Local" folder and "Remote Tracking" folder is there-> Now Right click on Remotes folder(below branches) and "Create Remote" -> Name your remote respository(we are actualy going to fetch what is currently available in Github repository with this name. So its recommended to name it same as Step 2 with txt like github/remote) -> Create-> Click on "Change"->Provide the same URL(step 2) & provide your github email(username) and password-> Finish
+
+9. Now you should see your new remote under Remotes tree and one download and one upload entries should be there.
+Right click on the newly created remoted tree and choose Configure Fetch
+Add reference by searching by branch name from Git Repository (master by default) and finish
+
+10. Also, under Branches->Remote Tracking, the newly fetch respository/branch should show now
+
+11. Right click on your eclipse project again->Team->Commit->Pull the files(all files for first time load of project) from Unstaged Changes to Staged Changes and Provide any comments and Commit (Do not give commit and Push now - you are still doing commit to your local repository and need to do merge before push).
+
+12. Now under Git Repositories tab->your local repository-> Branches->Local-> the local branch as "master" should be there.
+
+13. Right click on the local->master branch and select "merge". On the merge window, make sure your local branch(step 12) is in local folder and remote branch (step 8) in Remote Tracking folder->Click on "Merge"->"Merged" txt should appear->Click ok.
+
+14. Under Git Repositories tab-> your local repository->Remotes->Right Click on Remote Name->Push-> Progress will show in lower right corner of eclipse. Will be pushed to github in 5 seconds approx. Confirmation message will appear on a pop up->Click ok.
+
+15. Go to github and open your repository (step 2)-> Check if the eclipse project and its files are available under Master branch(default). 
+
+Congrats! You did a good job uploading your project/files to github. Enjoy your day 😁!!!

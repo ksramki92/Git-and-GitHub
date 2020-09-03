@@ -1,0 +1,4 @@
+1. "Rejected: Non fast farward" while pushing project/files to github.
+
+---Commit your project/files to local repository first. Then try push.
+
